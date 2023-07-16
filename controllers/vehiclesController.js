@@ -71,17 +71,6 @@ const getVehicle = async (req, res) =>
     res.json(vehicle);
 }
 
-const rentVehicle = async (req, res) =>
-{
-    if (!req?.params?.id) return res.status(400).json({'message': 'Vehicle ID required!'});
-
-    const vehicle = await Vehicle.findOne({_id: req.params.id}).exec();
-    if (!vehicle)
-    {
-        return res.status(204).json({"message": `No vehicle matches ID ${req.params.id}!`});
-    }
-    res.json(vehicle);
-}
 
 
-module.exports = {getAllVehicles, createNewVehicle, updateVehicle, deleteVehicle, getVehicle, rentVehicle};
+module.exports = {getAllVehicles, createNewVehicle, updateVehicle, deleteVehicle, getVehicle};
