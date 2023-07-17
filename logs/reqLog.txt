@@ -1,2 +1,17 @@
 2023/07/17	14:02:44	a5e1aced-c86d-4b1a-86bc-e85071f1803d	POST	undefined	/auth
 2023/07/17	14:03:03	7f46bd30-b0ba-41b9-96a8-bd2040055351	GET	undefined	/vehicles
+2023/07/17	14:38:08	ca9babaf-5d79-4cdf-98dc-612537250b68	POST	undefined	/auth
+2023/07/17	14:40:05	8ff8f061-a4b0-4354-893a-4efa49d0d4e2	POST	undefined	/rentals
+2023/07/17	14:43:13	8f1793d3-cfe1-49df-8c26-ce4a301b1f21	GET	undefined	/refresh
+2023/07/17	14:50:19	73ce505a-b316-4564-897d-a81dacb80077	GET	undefined	/refresh
+2023/07/17	14:53:29	a91b570a-5d45-43da-9fe2-d7b284446e10	GET	undefined	/vehicles/
+2023/07/17	14:54:47	063b9f01-fa47-4c3a-b6af-03b5f3381ccf	GET	undefined	/refresh
+2023/07/17	14:56:13	196f0069-bbbf-466d-8fb4-af0f0efcb427	GET	undefined	/vehicles/64b4d9bbb1cab2cdfcca3e80
+2023/07/17	14:56:38	bbb87c96-345b-4e76-abc6-31a8a0af8bb9	GET	undefined	/logOut
+2023/07/17	14:56:49	c84e94b3-b03a-4d77-ac12-50bc00423cd9	POST	undefined	/auth
+2023/07/17	14:57:37	e8a64440-a41b-497f-977e-0097bb72dfa4	GET	undefined	/vehicles
+2023/07/17	14:57:49	c1a08abe-fecc-4b32-b73d-b88ccee8ce46	GET	undefined	/vehicles/64b1aea141a6cfaacf888a43
+2023/07/17	14:58:24	5e5bdf4c-b0be-4087-b8c4-ec9302c6653f	GET	undefined	/vehicles/64b1aed941a6cfaacf888a45
+2023/07/17	14:58:41	b950eff1-b22b-4e9b-a208-a13d9ad4f1d8	GET	undefined	/vehicles/64b4c8301443b90788c8c175
+2023/07/17	14:58:57	d917f489-4f10-4193-afc4-27833cd1700e	GET	undefined	/vehicles/64b4c8631443b90788c8c177
+2023/07/17	14:59:43	d27d0c90-e89b-48fb-9b05-f2f9e88bd518	GET	undefined	/logOut
