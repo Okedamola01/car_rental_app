@@ -2,7 +2,7 @@ const Rental = require('../model/Rental');
 const Vehicle = require('../model/Vehicle');
 const User = require('../model/User');
 
-const rentVehicle = async (req, res) => {
+const creteRental = async (req, res) => {
   try {
     const { vehicleId, startDate, endDate } = req.body;
 
@@ -35,6 +35,14 @@ const rentVehicle = async (req, res) => {
   }
 };
 
+const getAllRentals = async (req, res) =>
+{
+  const rentals = await Vehicle.find();
+  if (!rentals) return res.status(201).json({ 'message': 'No employees found.' });
+  res.json(rentals);
+}
+
 module.exports = {
-  rentVehicle
+  createRental,
+  getAllRentals
 };

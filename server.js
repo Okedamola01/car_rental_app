@@ -1,8 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const path = require('path');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
+const { logger } = require('./middleware/logEvents');
+const errorHandler = require('./middleware/errorHandler');
 const verifyJWT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
@@ -12,6 +15,9 @@ const PORT = process.env.PORT || 7000;
 
 //Connect to MongoDB
 connectDB();
+
+//custom middleware logger
+app.use(logger);
 
 //Handle options credentials check - before CORS!
 //also fetch cookies credentials requirement
@@ -43,6 +49,8 @@ app.use('/logout', require('./routes/logout'));
 
 app.use(verifyJWT);
 app.use('/vehicles', require('./routes/api/vehicles'));
+
+app.use(errorHandler);
 
 mongoose.connection.once('open', () =>
 {
