@@ -1,0 +1,2 @@
+2023/07/17	14:02:44	a5e1aced-c86d-4b1a-86bc-e85071f1803d	POST	undefined	/auth
+2023/07/17	14:03:03	7f46bd30-b0ba-41b9-96a8-bd2040055351	GET	undefined	/vehicles

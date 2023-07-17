@@ -2,7 +2,7 @@ const Rental = require('../model/Rental');
 const Vehicle = require('../model/Vehicle');
 const User = require('../model/User');
 
-const creteRental = async (req, res) => {
+const createNewRental = async (req, res) => {
   try {
     const { vehicleId, startDate, endDate } = req.body;
 
@@ -43,6 +43,6 @@ const getAllRentals = async (req, res) =>
 }
 
 module.exports = {
-  createRental,
+  createNewRental,
   getAllRentals
 };
