@@ -1,1 +1,2 @@
 2023/07/17	13:59:09	{uuid()}	ReferenceError: reqLog is not defined
+2023/07/19	11:51:14	ba1aeef0-fd87-4396-9521-73f61b7ea5f1	TypeError: Cannot read properties of undefined (reading 'username')

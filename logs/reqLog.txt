@@ -15,3 +15,17 @@
 2023/07/17	14:58:41	b950eff1-b22b-4e9b-a208-a13d9ad4f1d8	GET	undefined	/vehicles/64b4c8301443b90788c8c175
 2023/07/17	14:58:57	d917f489-4f10-4193-afc4-27833cd1700e	GET	undefined	/vehicles/64b4c8631443b90788c8c177
 2023/07/17	14:59:43	d27d0c90-e89b-48fb-9b05-f2f9e88bd518	GET	undefined	/logOut
+2023/07/19	06:12:35	7e1ee235-1d5a-4c58-9b8a-9f4383fd6a87	POST	undefined	/auth
+2023/07/19	06:13:11	24683ca2-deeb-467b-927f-ffe1d1adb686	GET	undefined	/vehicles
+2023/07/19	06:14:29	a9713b0c-ef8a-44fe-b931-fb7a2fb1a0f7	POST	undefined	/rentals
+2023/07/19	06:14:47	4d6e7f02-e893-425d-b55a-3c859ac91c7e	POST	undefined	/rentals
+2023/07/19	06:15:46	b4fe87da-f26c-44d0-bed6-fbe047afb95f	POST	undefined	/rentals
+2023/07/19	11:43:53	b6500783-d9c2-489d-a220-cc9ed624dbdb	POST	undefined	/auth
+2023/07/19	11:44:55	2c3c30b8-c21c-4dd8-85e5-cd6d1f164008	GET	undefined	/vehicles
+2023/07/19	11:50:38	f97bd096-c1c4-4ca7-89b0-8c8020c59b9e	GET	undefined	/refresh
+2023/07/19	11:51:14	e5ef3f7e-9572-4e0d-8b82-0d1ed1a9f08a	POST	undefined	/rentals
+2023/07/19	11:59:49	027b43b0-9079-4248-8504-293915a6e15c	POST	undefined	/auth
+2023/07/19	12:00:07	ca25b24d-84ab-4aad-b89c-ea397fb122b5	POST	undefined	/rentals
+2023/07/19	12:00:22	d60f3e5b-82a8-49ab-b82b-c1b39c47a920	POST	undefined	/rentals
+2023/07/19	12:11:24	debf199a-f563-4b0e-8361-eff8e2f2b2b3	POST	undefined	/auth
+2023/07/19	12:11:54	24f32c67-6aff-4279-ae77-42f3a89904a3	POST	undefined	/rentals

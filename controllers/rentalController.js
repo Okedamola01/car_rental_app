@@ -4,34 +4,24 @@ const User = require('../model/User');
 
 const createNewRental = async (req, res) => {
   try {
-    const { vehicleId, startDate, endDate } = req.body;
+    const { user, vehicle, startDate, endDate, rentalFee } = req.body;
 
-    // Check if the vehicle ID is provided
-    if (!vehicleId) {
-      return res.status(400).json({ message: 'Vehicle ID is required.' });
-    }
-
-    // Find the vehicle based on the provided ID
-    const vehicle = await Vehicle.findById(vehicleId);
-    if (!vehicle) {
-      return res.status(404).json({ message: `Vehicle with ID ${vehicleId} not found.` });
-    }
-
-    // Create the rental
+    // Create a new rental instance using the Rental model
     const rental = new Rental({
-      user: req.user,  
-      vehicle: vehicle._id,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate
+      user,
+      vehicle,
+      startDate,
+      endDate,
+      rentalFee,
     });
 
-    // Save the rental
+    // Save the rental to the database
     const savedRental = await rental.save();
-    console.log(savedRental);
+
     res.status(201).json(savedRental);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Failed to create rental.' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to create rental" });
   }
 };
 

@@ -45,10 +45,10 @@ app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
-//app.use('/rental', require('./routes/rental'));
 
 app.use(verifyJWT);
 app.use('/vehicles', require('./routes/api/vehicles'));
+app.use('/rentals', require('./routes/api/rentals'));
 
 app.use(errorHandler);
 
