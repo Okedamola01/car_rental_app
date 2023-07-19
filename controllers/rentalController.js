@@ -15,6 +15,13 @@ const createNewRental = async (req, res) => {
       rentalFee,
     });
 
+    await rental.populate({
+      path: "user",
+      select: "-password -refreshToken",
+    }).execPopulate();
+
+    await rental.populate("vehicle").execPopulate();
+
     // Save the rental to the database
     const savedRental = await rental.save();
 
@@ -73,8 +80,8 @@ const getRental = async (req, res) =>
 
 const getAllRentals = async (req, res) =>
 {
-  const rentals = await Vehicle.find();
-  if (!rentals) return res.status(201).json({ 'message': 'No employees found.' });
+  const rentals = await Rental.find();
+  if (!rentals) return res.status(201).json({ 'message': 'No rentals found!' });
   res.json(rentals);
 }
 
