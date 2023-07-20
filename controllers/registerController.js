@@ -1,40 +1,48 @@
 const User = require("../model/User");
-const bcrypt = require("bcrypt");
 
 const handleNewUser = async (req, res) => {
-  const { firstname, lastname, user, pwd, email } = req.body;
-  if (!firstname || !lastname || !user || !pwd || !email) {
-    return res.status(400).json({
-      message:
-        "Username, password and email address required to create account!",
-    });
-    // You error response message is misleading. You are expecting people to enter firstname, lastname, user,pwd and email,
-    // but in the error validation message, you are asking for  "'Username, password and email address required to create account!"
+  const { firstname, lastname, password, email, username, roles } = req.body;
 
-    // When I looked at you payload for the register, I saw only username,roles and password. You need to tidy up these things.
+  if (!firstname || !lastname || !password || !email || !username) {
+    return res.status(400).json({
+      message: "All fields must be filled",
+    });
   }
 
   try {
     //check for duplicate user in DB
-    const duplicate = await User.findOne({ username: user }).exec();
+    const duplicate = await User.findOne({ email }); //Here you are searching for a user with the email that you have given
+    // you can also use username.
     if (duplicate) {
-      return res.status(409).json({ message: "Username already exists" });
+      return res.status(409).json({ message: "User already exists" });
     }
 
     //password encryption
-    const hashedPwd = await bcrypt.hash(pwd, 10);
+    // const hashedPwd = await bcrypt.hash(pwd, 10); // Here you do not need to hash password again because
+    // you have already hashed it in the schema.
 
-    //create and store new user
-    const result = await User.create({
-      firstname: firstname,
-      lastname: lastname,
-      username: user,
-      password: hashedPwd,
-      email: email,
+    // create a new user object to add to the database.
+
+    const newUser = {
+      // It could have been firstname : req.body.firstname, which means the firstname
+      // that you are going to type, but since you hae already destructure it above,
+      // you would not need to do that. Rather, you should do it like this.
+
+      firstname,
+      lastname,
+      email,
+      username,
+      password,
+      roles,
+    };
+
+    const user = await User.create(newUser);
+
+    console.log(user);
+    res.status(201).json({
+      success: true, // This is just to show that the operation went through
+      result: user,
     });
-
-    console.log(result);
-    res.status(201).json({ success: `New user ${user} successfully created!` });
   } catch (err) {
     console.error(err);
     res

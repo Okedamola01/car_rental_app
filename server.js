@@ -10,7 +10,11 @@ const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const credentials = require("./middleware/credentials");
 const mongoose = require("mongoose");
+
+const authRouter = require("./routes/auth");
+
 const connectDB = require("./config/dbConn");
+
 const PORT = process.env.PORT || 7000;
 
 //Connect to MongoDB
@@ -40,8 +44,7 @@ app.get("/", (req, res) => {
 });
 
 //routes
-app.use("/register", require("./routes/register"));
-app.use("/auth", require("./routes/auth"));
+app.use("/auth", authRouter);
 app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 app.use("/rental", require("./routes/rental"));
