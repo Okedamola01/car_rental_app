@@ -21,10 +21,16 @@ const rentalSchema = new Schema(
       type: Date,
       required: true,
     },
+    //Anything else?
+
+    // You should add also>
     rentalFee: {
       type: Number,
       required: true,
     },
+
+    // later on you could add:
+    // payment which would referrence payment collection
   },
   { timestamps: true } // This line allows mongo to automatically add the creation and update time
 );
