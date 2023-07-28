@@ -15,12 +15,12 @@ const createNewRental = async (req, res) => {
       rentalFee,
     });
 
-    await rental.populate({
-      path: "user",
-      select: "-password -refreshToken",
-    }).execPopulate();
+    // await rental.populate({
+    //   path: "user",
+    //   select: "-password -refreshToken",
+    // }).execPopulate();
 
-    await rental.populate("vehicle").execPopulate();
+    // await rental.populate("vehicle").execPopulate();
 
     // Save the rental to the database
     const savedRental = await rental.save();
@@ -80,9 +80,16 @@ const getRental = async (req, res) =>
 
 const getAllRentals = async (req, res) =>
 {
-  const rentals = await Rental.find();
+  try {
+    const rentals = await Rental.find()
+  .populate('user', 'username')
+  .populate('vehicle', 'maker model year color');
   if (!rentals) return res.status(201).json({ 'message': 'No rentals found!' });
   res.json(rentals);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({error: 'Failed to get rentals!'})
+  }
 }
 
 module.exports = {

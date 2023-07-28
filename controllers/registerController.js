@@ -10,9 +10,9 @@ if(!firstname || !lastname || !user || !pwd || !email) {
 
     try {
         //check for duplicate user in DB
-        const duplicate = await User.findOne({username: user}).exec();
+        const duplicate = await User.findOne({email}).exec();
         if(duplicate) {
-        return res.status(409).json({'message': 'Username already exists'});
+        return res.status(409).json({'message': 'User already exists'});
         }
         
         //password encryption
