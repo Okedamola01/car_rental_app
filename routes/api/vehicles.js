@@ -6,10 +6,10 @@ const verifyRoles = require('../../middleware/verifyRoles');
 
 router.route('/')
     .get(vehiclesController.getAllVehicles)
-    .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), vehiclesController.createNewVehicle)
-    .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), vehiclesController.updateVehicle)
-    .delete(verifyRoles(ROLES_LIST.Admin), vehiclesController.deleteVehicle);
+    .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), vehiclesController.createNewVehicle);
 
 router.route('/:id')
-    .get(vehiclesController.getVehicle);
+    .get(vehiclesController.getVehicle)
+    .delete(verifyRoles(ROLES_LIST.Admin), vehiclesController.deleteVehicle)
+    .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), vehiclesController.updateVehicle);
 module.exports = router;

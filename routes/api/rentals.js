@@ -6,11 +6,12 @@ const verifyRoles = require('../../middleware/verifyRoles');
 
 router.route('/')
     .get(rentalController.getAllRentals)
-    .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor, ROLES_LIST.User), rentalController.createNewRental)
-    .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), rentalController.updateRental)
-    .delete(verifyRoles(ROLES_LIST.Admin), rentalController.deleteRental);
+    .delete(verifyRoles(ROLES_LIST.Admin), rentalController.deleteAllRentals)
+    .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor, ROLES_LIST.User), rentalController.createNewRental);
 
 router.route('/:id')
-    .get(rentalController.getRental);
+    .get(rentalController.getRental)
+    .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), rentalController.updateRental)
+    .delete(verifyRoles(ROLES_LIST.Admin), rentalController.deleteRental);
 
 module.exports = router;
